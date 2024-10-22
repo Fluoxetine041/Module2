@@ -25,38 +25,36 @@ body {
     font-size: 1.5em;
 }
 
-/* 響應式佈局 */
+/* 響應式佈局調整 - 使用 Flexbox 來替代浮動布局 */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 @media (min-width: 992px) {
     .menu-item {
-        float: left;
-        width: 33.333%;
+        flex: 0 0 32%;
+        box-sizing: border-box;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .menu-item:nth-child(1), .menu-item:nth-child(2) {
-        float: left;
-        width: 50%;
+    .menu-item {
+        flex: 0 0 48%;
+        box-sizing: border-box;
     }
     .menu-item:nth-child(3) {
-        width: 100%;
-        clear: both;
+        flex: 0 0 100%;
     }
 }
 
 @media (max-width: 767px) {
     .menu-item {
-        width: 100%;
+        flex: 0 0 100%;
         margin-bottom: 20px;
     }
     .menu-item:last-child {
         margin-bottom: 0;
     }
-}
-
-/* 清除浮動 */
-#menu::after {
-    content: "";
-    display: table;
-    clear: both;
 }
