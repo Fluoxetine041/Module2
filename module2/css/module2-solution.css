@@ -7,11 +7,7 @@ body {
     box-sizing: border-box;
 }
 
-.section-container {
-    margin: 20px;
-}
-
-.section {
+.article {
     border: 1px solid black;
     padding: 20px;
     background-color: #f0f0f0;
@@ -33,23 +29,61 @@ body {
 
 /* 桌面視圖（992px 及以上） */
 @media (min-width: 992px) {
-    .menu-item {
-        float: left;
-        width: 33.333%;
+    .lego {
+        grid-template-columns: repeat(3, 1fr); /* 在寬度超過 992px 時顯示三列 */
+        grid-template-rows: repeat(4, 1fr);    /* 顯示四行 */
+    }
+
+    /* 使用 grid-row 和 grid-column 將每個元素放置在指定位置 */
+    .item1 {
+        grid-column: 1 / span 3; /* 跨三列 */
+        grid-row: 1;             /* 第一行 */
+    }
+
+    .item2 {
+        grid-column: 1;
+        grid-row: 2 / span 3;    /* 跨三行 */
+    }
+
+    .item3 {
+        grid-column: 2;
+        grid-row: 2 / span 3;    /* 跨三行 */
+    }
+
+    .item4 {
+        grid-column: 3;
+        grid-row: 2 / span 3;    /* 跨三行 */
     }
 }
 
 /* 平板電腦視圖（768px 到 991px） */
 @media (min-width: 768px) and (max-width: 991px) {
-    .menu-item:nth-child(1), .menu-item:nth-child(2) {
-        float: left;
-        width: 50%;
+    .lego {
+        grid-template-columns: repeat(4, 1fr); /* 在寬度超過 992px 時顯示四列 */
+        grid-template-rows: repeat(5, 1fr);    /* 顯示五行 */
     }
+
+    /* 使用 grid-row 和 grid-column 將每個元素放置在指定位置 */
+    .head {
+        grid-column: 1 / span 4; /* 跨四列 */
+        grid-row: 1;             /* 第一行 */
+    }
+
+    .menu-item:nth-child(1) {
+        grid-column: 1 / span 2; /* 跨二列 */
+        grid-row: 2 / span 2;    /* 跨二行 */
+    }
+
+    .menu-item:nth-child(2) {
+        grid-column: 3 / span 2; /* 跨二列 */
+        grid-row: 2 / span 2;    /* 跨二行 */
+    }
+
     .menu-item:nth-child(3) {
-        width: 100%;
-        clear: both;
+        grid-column: 1 / span 4; /* 跨四列 */
+        grid-row: 4 / span 2;    /* 跨二行 */
     }
-}
+    }
 
 /* 行動裝置視圖（767px 及以下） */
 @media (max-width: 767px) {
