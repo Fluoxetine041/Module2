@@ -1,31 +1,37 @@
-/* 全局樣式 */
+/* 基礎樣式 */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* 菜單項目的樣式 */
-.menu-item {
+.section-container {
     margin: 20px;
-    padding: 20px;
+}
+
+.section {
     border: 1px solid black;
+    padding: 20px;
     background-color: #f0f0f0;
     box-sizing: border-box;
     position: relative;
+    float: none; /* 避免不必要的浮動影響 */
+    width: 100%; /* 確保默認為 100% 寬度 */
 }
 
-/* 標題部分的樣式 */
-.menu-item header {
+.section-header {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     background-color: #ffcc00;
-    padding: 10px;
-    border-bottom: 1px solid black;
-    font-size: 1.5em;
+    padding: 5px;
+    border: 1px solid black;
+    font-size: 1.25em;
 }
 
-/* 響應式佈局 */
+/* 桌面視圖（992px 及以上） */
 @media (min-width: 992px) {
     .menu-item {
         float: left;
@@ -33,6 +39,7 @@ body {
     }
 }
 
+/* 平板電腦視圖（768px 到 991px） */
 @media (min-width: 768px) and (max-width: 991px) {
     .menu-item:nth-child(1), .menu-item:nth-child(2) {
         float: left;
@@ -44,6 +51,7 @@ body {
     }
 }
 
+/* 行動裝置視圖（767px 及以下） */
 @media (max-width: 767px) {
     .menu-item {
         width: 100%;
@@ -52,11 +60,4 @@ body {
     .menu-item:last-child {
         margin-bottom: 0;
     }
-}
-
-/* 清除浮動 */
-#menu::after {
-    content: "";
-    display: table;
-    clear: both;
 }
