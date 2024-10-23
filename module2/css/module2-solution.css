@@ -13,8 +13,6 @@ body {
     background-color: #f0f0f0;
     box-sizing: border-box;
     position: relative;
-    float: none; /* 避免不必要的浮動影響 */
-    width: 100%; /* 確保默認為 100% 寬度 */
 }
 
 .section-header {
@@ -56,12 +54,14 @@ body {
     }
 }
 
+
 /* 平板電腦視圖（768px 到 991px） */
 @media (min-width: 768px) and (max-width: 991px) {
     .lego {
         grid-template-columns: repeat(4, 1fr); /* 在寬度超過 992px 時顯示四列 */
         grid-template-rows: repeat(5, 1fr);    /* 顯示五行 */
     }
+
 
     /* 使用 grid-row 和 grid-column 將每個元素放置在指定位置 */
     .head {
@@ -88,10 +88,12 @@ body {
 /* 行動裝置視圖（767px 及以下） */
 @media (max-width: 767px) {
     .menu-item {
-        width: 100%;
+        flex: 1 1 100%;
         margin-bottom: 20px;
+        max-width: 100%;
     }
     .menu-item:last-child {
         margin-bottom: 0;
     }
 }
+
